@@ -6,7 +6,7 @@ ES7的进度可以看https://github.com/tc39/ecma262 ，可以看到async/await�
 
 #### 支持情况
 
-v8和ChakraCore这两个js引擎的最新版已经支持async/await，但node和大多数浏览器（目前只有Edge支持）还不支持。不过这个不是问题，因为有工具可以把ES7代码编译成ES6（在node中使用，因为node v4后支持大部分ES6特性）或ES5（在浏览器中使用），常用的工具有babel.js和typescript。
+v8和ChakraCore这两个js引擎的最新版已经支持async/await，但node（更新：node v7.x开始支持了）和大多数浏览器（目前只有Edge支持）还不支持。不过这个不是问题，因为有工具可以把ES7代码编译成ES6（在node中使用，因为node v4后支持大部分ES6特性）或ES5（在浏览器中使用），常用的工具有babel.js和typescript。
 
 #### 简单例子
 

@@ -2,11 +2,11 @@ javascript的callback hell一直被认为是一个大坑，为了解决这个问
 
 #### ES7的进度
 
-ES7的进度可以看https://github.com/tc39/ecma262 ，可以看到async/await已经达到stage 3，语法已经被确定，会基于Promise来实现（具体stage 3的含义可见https://tc39.github.io/process-document/ ，stage 3是“all semantics, syntax and API are completed described”）。
+ES7的进度可以看https://github.com/tc39/ecma262 ，可以看到async/await已经~~达到stage 3~~完成，语法已经被确定，会基于Promise来实现（~~具体stage 3的含义可见https://tc39.github.io/process-document/ ，stage 3是“all semantics, syntax and API are completed described”~~）。
 
 #### 支持情况
 
-v8和ChakraCore这两个js引擎的最新版已经支持async/await，但node（更新：node v7.x开始支持了）和大多数浏览器（目前只有Edge支持）还不支持。不过这个不是问题，因为有工具可以把ES7代码编译成ES6（在node中使用，因为node v4后支持大部分ES6特性）或ES5（在浏览器中使用），常用的工具有babel.js和typescript。
+v8和ChakraCore这两个js引擎的最新版已经支持async/await，但node（更新：node v7.x开始支持了，将于2016-10发布）和大多数浏览器（目前只有Edge支持）还不支持。不过这个不是问题，因为有工具可以把ES7代码编译成ES6（在node中使用，因为node v4后支持大部分ES6特性）或ES5（在浏览器中使用），常用的工具有babel.js和typescript。
 
 #### 简单例子
 
@@ -109,6 +109,7 @@ main();
 可以看到，增加了一个公用的__awaiter函数，三个action的代码没有变化，async/await被ES6的generator和yield替代，逻辑上并没有大的变化，编译前后的代码片段容易一一对应。
 
 再看用babel.js编译成ES5后的代码：
+
 ```javascript
 "use strict";
 var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, Promise, generator) {
@@ -209,6 +210,7 @@ main();
 
 上面的例子比较简单，只有顺序执行和条件，可以看一些更复杂的例子，比如循环。一般如果要不定长数组里的promise依次执行，可以用函数式/递归来做，每次只处理第一个promise，处理后把数组的其它部分作为新数组递归执行，直到全部完成，比较麻烦。
 而使用async/await的话，逻辑就很清晰：
+
 ```javascript
 async function main(promises) { // promises是一个promise数组
     let result = 0;
@@ -221,7 +223,16 @@ async function main(promises) { // promises是一个promise数组
 
 #### 还可以使用Promise
 
-当然，由于async/await是基于Promise，`Promise.all()`和`Promise.race()`也可以很方便地被使用，从而更灵活地实现复杂逻辑。
+当然，由于async/await是基于Promise，`Promise.all()`和`Promise.race()`也可以很方便地配合使用，从而更灵活地实现复杂逻辑。
+
+```javascript
+async function main(promises) { // promises是一个promise数组
+    const results = await Promise.all(promises);
+    return results.reduce((previousValue, currentValue) => {
+        return previousValue + currentValue;
+    }, 0);
+}
+```
 
 #### error处理
 

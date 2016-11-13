@@ -92,3 +92,29 @@ services.bar.anotherThing();
 ### view层
 
 一般不推荐在后台渲染页面，如果一定要这样做，可以放在`views/`或`templates/`里。
+
+### 内部模块的可测试性
+
+当一个内部模块直接调用其它内部模块，或外部库时，如果涉及到文件操作、网络操作、数据库操作、其它服务等，因为代码耦合严重，不便测试。
+
+这时可以通过，把所要调研的的函数，移到参数中，以减少耦合度。
+
+```ts
+function foo() {
+    return 123;
+}
+
+function bar(
+    context: {
+        foo: typeof foo,
+    }
+) {
+    return 1 + context.foo();
+}
+
+// 调用时
+bar({ foo });
+
+// 测试时
+bar({ foo: () => 234 });
+```

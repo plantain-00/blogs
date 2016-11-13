@@ -97,7 +97,7 @@ services.bar.anotherThing();
 
 当一个内部模块直接调用其它内部模块，或外部库时，如果涉及到文件操作、网络操作、数据库操作、其它服务等，因为代码耦合严重，不便测试。
 
-这时可以通过，把所要调研的的函数，移到参数中，以减少耦合度。
+这时可以通过，把所要调用的的函数，移到参数中，以减少耦合度。
 
 ```ts
 function foo() {
@@ -117,4 +117,26 @@ bar({ foo });
 
 // 测试时
 bar({ foo: () => 234 });
+```
+
+上面是移到函数参数的形式。如果使用了class，可以把method公共的依赖，移到constructor中。
+
+```ts
+function foo() {
+    return 123;
+}
+class Bar {
+    constructor(private _foo: typeof foo) { }
+    bar() {
+        return 1 + this._foo();
+    }
+}
+
+// 调用时
+const bar1 = new Bar(foo);
+bar1.bar();
+
+// 测试时
+const bar2 = new Bar(() => 234);
+bar2.bar();
 ```

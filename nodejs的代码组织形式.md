@@ -104,19 +104,15 @@ function foo() {
     return 123;
 }
 
-function bar(
-    context: {
-        foo: typeof foo,
-    }
-) {
-    return 1 + context.foo();
+function bar(_foo: typeof foo) {
+    return 1 + _foo();
 }
 
 // 调用时
-bar({ foo });
+bar(foo);
 
 // 测试时
-bar({ foo: () => 234 });
+bar(() => 234);
 ```
 
 上面是移到函数参数的形式。如果使用了class，可以把method公共的依赖，移到constructor中。

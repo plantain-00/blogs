@@ -51,7 +51,7 @@ const observable = Observable.fromEvent(document.getElementById("id"), "keydown"
 #### 流的合并
 
 ```
-const observable = Observable.of(1, 2, 3).merge(Observable.of(4, 5, 6);
+const observable = Observable.of(1, 2, 3).merge(Observable.of(4, 5, 6));
 ```
 
 有了这个操作之后，多个输入可以汇入一个流中，方便处理。
@@ -86,6 +86,7 @@ observable.filter((value, index) => {
 + 触摸屏事件
 + ajax请求
 + rpc调用的结果
++ 消息订阅
 
 使用时，先把事件转换成Observable：
 ```ts

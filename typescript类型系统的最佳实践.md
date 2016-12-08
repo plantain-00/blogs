@@ -195,7 +195,34 @@ function f(a) {
 ```
 19、类型{}的真正含义，与直觉不一致，不推荐使用
 
-20、未来，有模式匹配就好了。
+20、keyof
+
+```ts
+interface Person {
+    name: string;
+    age: number;
+}
+
+let propName: keyof Person; // "name" | "age"
+```
+
+21、Partial, Readonly, Record, and Pick
+
+```ts
+interface Person {
+    name: string;
+    age: number;
+}
+let person1: Partial<Person> = {
+    name: "abc",
+};
+
+let person2: Readonly<Person> = {
+    name: "abc",
+    age: 12,
+};
+person2.name = "aaa"; // error
+```
 
 总的来说，any最宽松，然后是Function和Object，然后是普通的类型，最严格的是开启了strictNullChecks和noImplicitAny的模式。
 

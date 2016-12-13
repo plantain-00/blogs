@@ -137,4 +137,10 @@ val a = (1 to 5).map(x => x * x).filter(x => x > 1).reduceLeft(_ + _)
 println(a)
 ```
 
-说了这么多，C、Java、Go却没有相关的用法。
+rust中也有类似的模式：
+```rust
+let a = [1, 2, 3, 4, 5].iter().map(|x| x * x).filter(|x| x % 2 == 0).fold(0, |acc, x| acc + x);
+println!("{}", a);
+```
+
+不过，C、Java、Go却没有相关的用法。

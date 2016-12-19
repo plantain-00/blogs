@@ -1,4 +1,5 @@
 + [一些技术的调查记录](./contents/一些技术的调查记录.md)
++ [interface和trait](./contents/interface和trait.md)
 + [模式匹配](./contents/模式匹配.md)
 + [推送组件设计](./contents/推送组件设计.md)
 + [前端构建过程实践总结](./contents/前端构建过程实践总结.md)

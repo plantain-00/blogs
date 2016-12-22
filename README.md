@@ -9,7 +9,6 @@
 + [web后端结构扩展方向](./contents/web后端结构扩展方向.md)
 + [typescript类型系统的最佳实践](./contents/typescript类型系统的最佳实践.md)
 + [map,reduce,filter相关模式](./contents/map,reduce,filter相关模式.md)
-+ [响应式编程：ReactiveX](./contents/响应式编程：ReactiveX.md)
 + [nodejs的代码组织形式](./contents/nodejs的代码组织形式.md)
 + [websocket和http的权衡](./contents/websocket和http的权衡.md)
 + [OAuth2和供第三方调用的SDK设计](./contents/OAuth2和供第三方调用的SDK设计.md)

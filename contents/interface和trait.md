@@ -70,3 +70,14 @@ print_area(circle1);
 ```
 
 因为rust中的这种限制，一般面向接口编程时，会使用大量的泛型，这也是为什么一般的rust代码中，出现泛型漫天飞的原因。
+
+rust的trait可以有不同的调用方式：
+```rust
+let circle = Circle {
+    x: 0f64,
+    y: 0f64,
+    radius: 10f64,
+};
+circle.area(); // 普通函数调用
+HasArea::area(&circle); // 从trait开始的函数调用
+```

@@ -11,6 +11,7 @@ v8和ChakraCore这两个js引擎的最新版已经支持async/await，但node（
 #### 简单例子
 
 下面举个例子来说明具体用法，需求是先执行action1，如果结果是true，执行action2，否则执行action3。由于原生接口还是callback的形式，需要先把这些action转换成promise形式：
+
 ```javascript
 "use strict";
 
@@ -36,7 +37,9 @@ function action3Async() {
     });
 }
 ```
+
 代码是：
+
 ```javascript
 async function main() { // void -> Promise<void>
     let result1 = await action1Async(); // Promise<boolean> -> boolean
@@ -50,12 +53,15 @@ async function main() { // void -> Promise<void>
 
 main();
 ```
+
 代码中的async关键字是个“修饰符”，类似于public/private/static等，async关键字会改变函数的返回值，如果函数返回一个number，加上async后会变成返回Promise<number>（`T `-> `Promise<T>`）。
+
 代码中的await关键字是一个“运算符”，一元，类似于负号“-”，它的右边应该是个Promise，它的返回值会是这个Promise的结果（`Promise<T>` -> `T`）。
 
 #### 编译后的代码
 
 如果我不信任编译后的代码，怎么办？那就先看一下生成后的代码是什么样的，首先是typescript编译成ES6后的代码：
+
 ```javascript
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, Promise, generator) {
@@ -106,6 +112,7 @@ function main() {
 }
 main();
 ```
+
 可以看到，增加了一个公用的__awaiter函数，三个action的代码没有变化，async/await被ES6的generator和yield替代，逻辑上并没有大的变化，编译前后的代码片段容易一一对应。
 
 再看用babel.js编译成ES5后的代码：
@@ -204,11 +211,13 @@ function main() {
 }
 main();
 ```
+
 可以看到，增加了一个公用的__awaiter函数，三个action的代码没有变化，async/await被替代，逻辑上变化要大一些，编译前后的代码片段一一对应起来要难一些。
 
 #### 更复杂的例子
 
 上面的例子比较简单，只有顺序执行和条件，可以看一些更复杂的例子，比如循环。一般如果要不定长数组里的promise依次执行，可以用函数式/递归来做，每次只处理第一个promise，处理后把数组的其它部分作为新数组递归执行，直到全部完成，比较麻烦。
+
 而使用async/await的话，逻辑就很清晰：
 
 ```javascript
@@ -237,6 +246,7 @@ async function main(promises) { // promises是一个promise数组
 #### error处理
 
 async/await的另一个好处是：error处理。
+
 try...catch不能捕获callback里的抛出的异常，但是却可以捕获await的promise里抛出的异常（又可以做到像C/C++/JAVA/C#那样，一个try...catch捕获所有错误了）。这样就可以非常方便地处理error了，不用再担心哪个callback是不是忘了处理error，从而导致程序崩溃了。
 
 #### 结论
@@ -246,6 +256,7 @@ try...catch不能捕获callback里的抛出的异常，但是却可以捕获awai
 2. 如果前端js的业务有点复杂度，并且可以容忍编译到ES5后的代码，可以考虑使用async/await编译到ES5。
 
 另外async/await并不是ES7独有的，C#5.0和python3.5都有类似的语法，可以看下面的例子：
+
 ```csharp
     public async Task<ActionResult> Register(User user)
     {
@@ -254,6 +265,7 @@ try...catch不能捕获callback里的抛出的异常，但是却可以捕获awai
         return RedirectToAction("Index", "Home"); // ActionResult -> Task<ActionResult>
     }
 ```
+
 ```python
 import asyncio
 

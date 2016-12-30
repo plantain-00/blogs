@@ -11,6 +11,7 @@ function md5(str) {
     return crypto.createHash("md5").update(str).digest("hex");
 }
 ```
+
 这本质是一种类型标注，一般的IDE都可以识别jsDoc里的类型，不过jsDoc支持的类型有限
 
 #### 2. typescript
@@ -20,6 +21,7 @@ function md5(str: string) {
     return crypto.createHash("md5").update(str).digest("hex");
 }
 ```
+
 这本质是一种语言，扩展名需要是`ts`，大部分编辑器和IDE都支持这种方式
 
 #### 3. flowtype
@@ -48,6 +50,7 @@ function md5(str) {
 此服务从jsDoc中读取类型，并交给typescript编译器来处理，结果在不修改原有代码、不改变语言、不需要转换过程的前提下，获得typescript提供的能力，目前只有少部分编辑器和IDE支持
 
 下面一个例子介绍怎么定义一个复杂的类型：
+
 ```ts
 // foo.d.ts
 export type Foo = {
@@ -56,6 +59,7 @@ export type Foo = {
     foo3: () => void;
 }
 ```
+
 ```js
 /// <reference path="./foo.d.ts">
 

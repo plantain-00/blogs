@@ -1,16 +1,21 @@
 #### 常规单元测试的缺点
 
 常规单元测试，需要设计多个测试用例（case），并且要提供每个case的实际运行结果。
+
 以一个js函数为例：
+
 ```javascript
 function f(n) {
     return 28 * n * n + 37 * n + 2 / n;
 }
 ```
+
 设计测试用例很简单，边边角角的随便写，比如：n=-1,0,1,2,5,10,50,70,100，但要提供这些case的实际运行结果就很烦了。
+
 这是缺点1：获得case期望值很麻烦。
 
 如果这些case的运行结果都提供了，测试通过。以mocha为例：
+
 ```javascript
 var assert = require("assert");
 describe("default", function() {
@@ -23,10 +28,13 @@ describe("default", function() {
     });
 });
 ```
+
 但是，当实际代码变化时，比如函数中的37变成38，涉及到的case就会挂掉一大片，失败的case都要再计算一遍。
+
 这是缺点2：case期望值很难维护。
 
 这些缺点也是单元测试很难普及的原因之一。
+
 下面在单元测试基础上引入baseline测试，主要用来解决上述的几个缺点。
 
 #### baseline测试
@@ -47,6 +55,7 @@ baseline测试是`baseline the correct result`，以nodejs中的一个实现为�
 #### 如果要用faker.js
 
 faker.js每次会生成不一样的数据，如果baseline直接依赖这样的数据，每次测试的结果会不一样。
+
 可以把生成的数据保存到`seeds.json`文件，然后baseline依赖`seeds.json`文件里的固定数据，这样每次测试的结果就一样了。
 
 #### 这是先有代码，后有测试，和TDD冲突？

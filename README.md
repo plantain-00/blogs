@@ -38,8 +38,3 @@
 + [UI组件拆分原则](./contents/UI组件拆分原则.md)
 + [数据备份和恢复策略](./contents/数据备份和恢复策略.md)
 + [mysql和mongodb的存储密度测试结果](./contents/mysql和mongodb的存储密度测试结果.md)
-+ [当前公司项目（2016-07）可以优化的地方](./contents/当前公司项目（2016-07）可以优化的地方.md)
-+ [实际工作中的非技术问题](./contents/实际工作中的非技术问题.md)
-+ [nodejs的开发维护效率经验性分析](./contents/nodejs的开发维护效率经验性分析.md)
-+ [对支持IE7浏览器的吐槽](./contents/对支持IE7浏览器的吐槽.md)
-+ [dota2的自动重连和平滑升级的可能实现方式](./contents/dota2的自动重连和平滑升级的可能实现方式.md)

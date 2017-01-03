@@ -1,4 +1,5 @@
 + [一些技术的调查记录](./contents/一些技术的调查记录.md)
++ [类型安全的物理量抽象](./contents/类型安全的物理量抽象.md)
 + [rust的ownership](./contents/rust的ownership.md)
 + [interface和trait](./contents/interface和trait.md)
 + [模式匹配](./contents/模式匹配.md)

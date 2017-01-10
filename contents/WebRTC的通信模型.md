@@ -6,7 +6,7 @@
 
 双方都要初始化RTCPeerConnection，并创建RTCDataChannel：
 
-```
+```js
 const peerConnection = new RTCPeerConnection();
 peerConnection.ondatachannel = event => {
     event.channel.onopen = e => {
@@ -24,7 +24,7 @@ const dataChannel = peerConnection.createDataChannel("test_channel_name"); // �
 
 这时发起方需要发出邀约：
 
-```
+```js
 peerConnection.createOffer()
     .then(offer => peerConnection.setLocalDescription(offer))
     .then(() => {
@@ -40,7 +40,7 @@ RTCPeerConnection对象有一个localDescription和一个remoteDescription，它
 
 RTCSessionDescription对象由type和sdp字段组成，下面看一下一个offer例子：
 
-```
+```js
 {
     type: "offer",
     sdp: `v=0
@@ -62,7 +62,7 @@ a=sctpmap:5000 webrtc-datachannel 1024
 
 这个例子里，type字段表明这是一个offer，dsp中包含了ip、端口、password等消息。这个offer还不包含任何candidate，可以稍后再执行一次`createOffer`过程，这样会创建一个新的offer：
 
-```
+```js
 {
     type: "offer",
     sdp: `v=0
@@ -85,19 +85,19 @@ a=sctpmap:5000 webrtc-datachannel 1024
 
 获得有效的offer，可以把这个offer序列化成字符串，再通过websocket等其它方式传递给接收方：
 
-```
+```js
 const offerString = JSON.stringify(offer.toJSON());
 ```
 
 接收方获得这个字符串后，可以反序列化成RTCSessionDescription对象：
 
-```
+```js
 const offer = new RTCSessionDescription(JSON.parse(offerString));
 ```
 
 然后，接收方开始针对这个offer给予反馈：
 
-```
+```js
 peerConnection.setRemoteDescription(offer)
     .then(() => peerConnection.createAnswer())
     .then(answer => peerConnection.setLocalDescription(answer))
@@ -114,7 +114,7 @@ offer和answer都是RTCSessionDescription对象，自己产生的就设为localD
 
 下面是一个answer的例子：
 
-```
+```js
 {
     type: "answer",
     sdp: `v=0
@@ -148,7 +148,7 @@ answer里也可能没有candidate，如果那样，可以再试一次，没有ca
 
 连接建立后，双方都可以向对方发送消息，对方会在onmessage事件中收到消息：
 
-```
+```js
 dataChannel.send("Hello world!");
 ```
 

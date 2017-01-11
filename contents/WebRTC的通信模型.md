@@ -29,7 +29,7 @@ peerConnection.createOffer()
     .then(offer => peerConnection.setLocalDescription(offer))
     .then(() => {
         // offer created
-    }, (error: Error) => {
+    }, error => {
         // error
     });
 ```
@@ -103,7 +103,7 @@ peerConnection.setRemoteDescription(offer)
     .then(answer => peerConnection.setLocalDescription(answer))
     .then(() => {
         // get answer
-    }, (error: Error) => {
+    }, error => {
         // error
     });
 ```

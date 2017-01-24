@@ -1,6 +1,6 @@
 这类工具带来的主要好处是：代码提示、类型检查，前者提高开发效率，后者可以检查出潜在的bug。
 
-#### 1. jsDoc
+### 1. jsDoc
 
 ```js
 /**
@@ -14,7 +14,7 @@ function md5(str) {
 
 这本质是一种类型标注，一般的IDE都可以识别jsDoc里的类型，不过jsDoc支持的类型有限
 
-#### 2. typescript
+### 2. typescript
 
 ```ts
 function md5(str: string) {
@@ -24,7 +24,7 @@ function md5(str: string) {
 
 这本质是一种语言，扩展名需要是`ts`，大部分编辑器和IDE都支持这种方式
 
-#### 3. flowtype
+### 3. flowtype
 
 ```js
 /* @flow */
@@ -35,7 +35,7 @@ function md5(str: string) {
 
 这本质是一个静态类型检查工具，而转换成js代码的功能需要babel.js，而且目前还不支持windows，目前只有少部分编辑器和一个专用的IDE支持
 
-#### 4. typescript提供了一个名为salsa的服务
+### 4. typescript提供了一个名为salsa的服务
 
 ```js
 /**

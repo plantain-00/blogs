@@ -1,8 +1,8 @@
-#### 准备
+### 准备
 
 使用https://github.com/webrtc/adapter 库来屏蔽chrome、firefox、edge之间的差异，简化编程。
 
-#### 连接的建立
+### 连接的建立
 
 双方都要初始化RTCPeerConnection，并创建RTCDataChannel：
 
@@ -144,7 +144,7 @@ answer里也可能没有candidate，如果那样，可以再试一次，没有ca
 
 这时候，点对点的连接就应该建立起来了，双方的onopen事件都会被触发，之后发起方和接收方会直接通信，就不需要websocket参与了。
 
-#### 发送数据
+### 发送数据
 
 连接建立后，双方都可以向对方发送消息，对方会在onmessage事件中收到消息：
 

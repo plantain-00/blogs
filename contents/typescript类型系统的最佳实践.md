@@ -1,4 +1,4 @@
-#### 一、typescript的准备
+### 一、typescript的准备
 
 1、安装nodejs，打开shell运行`npm init`以初始化项目
 
@@ -19,7 +19,7 @@
 
 4、用编辑器创建一个`.ts`文件，写入一些js代码并保存，运行`npm run tsc`，这时应该有同名的js文件产生
 
-#### 二、增加类型
+### 二、增加类型
 
 1、any，可以表示任意类型
 
@@ -271,7 +271,7 @@ person2.name = "aaa"; // error
 
 总的来说，any最宽松，然后是Function和Object，然后是普通的类型，最严格的是开启了strictNullChecks和noImplicitAny的模式。
 
-#### 三、增加lint
+### 三、增加lint
 
 应该用tslint来统一代码风格，特别是对于团队项目
 

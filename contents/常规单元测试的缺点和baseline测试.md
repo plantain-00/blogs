@@ -1,4 +1,4 @@
-#### 常规单元测试的缺点
+### 常规单元测试的缺点
 
 常规单元测试，需要设计多个测试用例（case），并且要提供每个case的实际运行结果。
 
@@ -37,7 +37,7 @@ describe("default", function() {
 
 下面在单元测试基础上引入baseline测试，主要用来解决上述的几个缺点。
 
-#### baseline测试
+### baseline测试
 
 baseline测试是`baseline the correct result`，以nodejs中的一个实现为例：
 
@@ -52,12 +52,12 @@ baseline测试是`baseline the correct result`，以nodejs中的一个实现为�
 2. 如果进行了一项重构，执行test，如果通过，就表示重构成功。这和普通单元测试一样。
 3. 如果修改了代码逻辑，执行rebuild，在diff工具里观察case的结果和自己的期望是否一致。这就解决了缺点2，维护case的结果更加方便了。
 
-#### 如果要用faker.js
+### 如果要用faker.js
 
 faker.js每次会生成不一样的数据，如果baseline直接依赖这样的数据，每次测试的结果会不一样。
 
 可以把生成的数据保存到`seeds.json`文件，然后baseline依赖`seeds.json`文件里的固定数据，这样每次测试的结果就一样了。
 
-#### 这是先有代码，后有测试，和TDD冲突？
+### 这是先有代码，后有测试，和TDD冲突？
 
 这是不同的测试方式，可以先用TDD开发，完成代码后rebuild baseline。

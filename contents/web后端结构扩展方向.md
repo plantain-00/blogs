@@ -40,6 +40,87 @@ rpc方式可以用直接基于TCP协议的框架，也可以用基于http的框�
 
 但服务层里服务越来越多，服务间的相互调用也越来越多，可以使用协调工具来管理这些服务，如zookeeper。
 
+在使用时，zookeeper的path设计为`/namespace_name/server_name/root_url`，权重保存在`root_url`上。
+
+而对于服务，相同的服务名，在使用方式、参数、返回值上都是一样的，区别是根地址不一样，例如`GET http://192.168.1.10:8000/api/books`和`GET http://192.168.1.11:9000/api/books`。
+
+当服务启动时，需要向zookeeper注册提供的服务列表：
+
+```ts
+import * as zookeeper from "node-zookeeper-client";
+
+const client = zookeeper.createClient("localhost:2181");
+
+const namespace = "test"; // 设计合适的namespace，可以让服务名更简短
+const serviceNames = ["service1", "service2", "service3"]; // 提供的服务名列表
+const rootUrl = "localhost:8000"; // 服务的根地址，由host:ip组成
+const weight = 2; // 服务的权重，在进程级别上设置，而不是对每个服务都单独设置
+
+client.once("connected", () => {
+    for (const serviceName of serviceNames) {
+        client.mkdirp(`/${namespace}/${serviceName}`, (mkdirpError, path) => {
+            if (mkdirpError) {
+                console.log(mkdirpError);
+            } else {
+                client.create(`/${namespace}/${serviceName}/${rootUrl}`, new Buffer(weight.toString()), zookeeper.CreateMode.EPHEMERAL, createError => {
+                    if (createError) {
+                        console.log(createError);
+                    }
+                });
+            }
+        });
+    }
+});
+
+client.connect();
+```
+
+而服务的使用方，对于所需要的服务，需要在本地维护一份服务信息（包括根地址和权重）：
+
+```ts
+import * as zookeeper from "node-zookeeper-client";
+
+const client = zookeeper.createClient("localhost:2181");
+
+const namespace = "test";
+
+const services: { [name: string]: { rootUrl: string, weight: number }[] } = {}; // 本地的服务信息
+
+function fetchAvailableServices(serviceName: string) {
+    client.getChildren(`/${namespace}/${serviceName}`, event => {
+        fetchAvailableServices(serviceName);
+    }, (getChildrenError, children, getChildrenStat) => {
+        if (getChildrenError) {
+            console.log(getChildrenError);
+        } else {
+            services[serviceName] = children.map(rootUrl => {
+                return {
+                    rootUrl,
+                    weight: 1,
+                };
+            });
+            for (const service of services[serviceName]) {
+                client.getData(`/${namespace}/${serviceName}/${service.rootUrl}`, (getDataError, data, getDataStat) => {
+                    service.weight = +data.toString();
+                });
+            }
+        }
+    });
+}
+
+const serviceNames = ["service1", "service2"]; // 需要的服务名列表
+
+client.once("connected", () => {
+    for (const serviceName of serviceNames) {
+        client.mkdirp(`/${namespace}/${serviceName}`, (mkdirpError, path) => {
+            fetchAvailableServices(serviceName);
+        });
+    }
+});
+
+client.connect();
+```
+
 ### 推送
 
 在node.js中，可以使用socket.io来实现，或者直接提供WebSocket服务，这取决于客户端是否支持WebSocket，当客户端不支持WebSocket时，socket.io可以提供fallback。

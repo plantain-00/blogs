@@ -1,11 +1,15 @@
 现在常见的两种API形式是：
+
 1、命令和查询：即所有查询都是GET请求，所有命令都是POST请求，URL中用名词和动词表示查询的内容和命令的内容
+
 2、RESTful：是一种基于资源的形式，用HTTP METHOD来表示增删改查的动作，URL中不会存在动词
 
 API设计时也要考虑前端平台的支持度，比如某些平台只支持GET/POST，比如jsonp只支持GET。
 
 对于RESTful形式，一般是`api.example.com`或`example.com/api/`的形式，版本号可以是`/api/v1`或`/api/user?v=1`的形式，也可以放在header中。
+
 常见的RESTful实践是：
+
 + `GET` `/api/users`: 查询用户的信息，查询条件会在参数中
 + `GET` `/api/users/:id`: 查询某个ID的用户的信息
 + `GET` `/api/users/:id/books`: 查询某个ID的用户的书，查询条件会在参数中

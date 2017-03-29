@@ -20,11 +20,11 @@ Vue.component("my-list", {
 
 ```ts
 Vue.component("my-element-1", {
-    template: "<button>{{name}}</button>",
+    template: "<button>\{{name}}</button>",
     props: ["name"]
 });
 Vue.component("my-element-2", {
-    template: "<span>{{name}}</span>",
+    template: "<span>\{{name}}</span>",
     props: ["name"]
 });
 ```

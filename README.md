@@ -20,7 +20,7 @@
 + [OAuth2和供第三方调用的SDK设计](./contents/OAuth2和供第三方调用的SDK设计.md)
 + [常规单元测试的缺点和baseline测试](./contents/常规单元测试的缺点和baseline测试.md)
 + [token的设计](./contents/token的设计.md)
-+ [HTTP API设计和取舍](./contents/HTTP API设计和取舍.md)
++ [基于HTTP协议的API设计和取舍](./contents/基于HTTP协议的API设计和取舍.md)
 + [开发工作流设计](./contents/开发工作流设计.md)
 + [基于redis的分布式锁](./contents/基于redis的分布式锁.md)
 + [js的几种表示类型的工具](./contents/js的几种表示类型的工具.md)

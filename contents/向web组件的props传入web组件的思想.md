@@ -42,7 +42,7 @@ Vue.component("my-element-2", {
 new Vue({
     el: '#app',
     data: {
-            elements: ["test 1", "test 2"]
+        elements: ["test 1", "test 2"]
     }
 });
 ```

@@ -2,6 +2,7 @@
 + [web后端结构扩展方向](./contents/web后端结构扩展方向.md)
 + [前后端分离实践总结](./contents/前后端分离实践总结.md)
 + [前端构建过程实践总结](./contents/前端构建过程实践总结.md)
++ [重构升级旧js项目的思路](./contents/重构升级旧js项目的思路.md)
 + [向web组件的props传入web组件的思想](./contents/向web组件的props传入web组件的思想.md)
 + [nodejs概要介绍分享记录](./contents/nodejs概要介绍分享记录.md)
 + [把含二进制数据的对象序列化成二进制](./contents/把含二进制数据的对象序列化成二进制.md)

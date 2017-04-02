@@ -135,7 +135,7 @@ ReactDOM.render(<Main />, document.getElementById("container"));
 
 #### angular的例子
 
-再以angular的组件为例，先设计一个组件，props有child(子组件类))、elements(string[], 列表数据)，要求子组件可以接收一个名为name的props：
+再以angular的组件为例，先设计一个组件，props有child(子组件类)、elements(string[], 列表数据)，要求子组件可以接收一个名为name的props：
 
 ```ts
 @Component({
@@ -151,7 +151,7 @@ class MyListComponent {
     @Input()
     child: any;
     @Input()
-    elements: string;
+    elements: string[];
 
     @ViewChild("children", { read: ViewContainerRef })
     children: ViewContainerRef;

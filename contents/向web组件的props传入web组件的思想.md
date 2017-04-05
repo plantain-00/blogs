@@ -68,7 +68,7 @@ new Vue({
 
 再以reactjs的组件为例，先设计一个组件，props有child(string, 子组件类))、elements(string[], 列表数据)，要求子组件可以接收一个名为name的props：
 
-```ts
+```tsx
 class MyList extends React.Component<{ elements: string[]; child: React.ComponentClass<{ name: string }> }, {}>{
     render() {
         return (
@@ -82,7 +82,7 @@ class MyList extends React.Component<{ elements: string[]; child: React.Componen
 
 调用这个组件前，需要先定义子组件，类似于函数的实参，这里分别定义两个子组件（实参）：
 
-```ts
+```tsx
 class MyElement1 extends React.Component<{ name: string }, {}>{
     render() {
         return (
@@ -101,7 +101,7 @@ class MyElement2 extends React.Component<{ name: string }, {}>{
 
 然后就像函数的传参那样分别调用一下：
 
-```ts
+```tsx
 class Main extends React.Component<{}, {}>{
     elements = ["test 1", "test 2"];
     render() {
@@ -131,6 +131,33 @@ ReactDOM.render(<Main />, document.getElementById("container"));
         </div>
     </div>
 </div>
+```
+
+然后是更简单的例子：
+
+```tsx
+class MyList extends React.Component<{ elements: string[]; child: React.StatelessComponent<{ name: string }> }, {}>{
+    render() {
+        return (
+            <div>
+                {this.props.elements.map(e => React.createElement(this.props.child, { name: e }))}
+            </div>
+        );
+    }
+}
+
+class Main extends React.Component<{}, {}>{
+    elements = ["test 1", "test 2"];
+    render() {
+        return (
+            <div>
+                <MyList elements={this.elements} child={(props: { name: string }) => <button>{props.name}</button>} ></MyList>
+                <MyList elements={this.elements} child={(props: { name: string }) => <span>{props.name}</span>} ></MyList>
+            </div>
+        );
+    }
+}
+ReactDOM.render(<Main />, document.getElementById("container"));
 ```
 
 #### angular的例子

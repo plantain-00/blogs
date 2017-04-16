@@ -13,7 +13,7 @@
 
 + 如果是nodejs程序，或者CLI程序，程序运行时的依赖包放到dependencies下，程序运行时不依赖的包放到devDependencies下。例如，一个网站后端，`express`应该防在dependencies下，而`@types/express`和`typescript`应该放在devDependencies下
 + 如果是前端程序，因为程序运行时不会依赖node_modules内的包，所以应该把所有的依赖都放到devDependencies下。例如，一个网站前端，`react`应该放在devDependencies下
-+ 如果是库，安装这个库时也需要安装的依赖包放到dependencies下，安装这个库时不需要安装的依赖包放到devDependencies下。例如，一个express中间件，`express`和`@types/express`应该防在dependencies下，而`typescript`应该放在devDependencies下
++ 如果是库，安装这个库时也需要安装的依赖包放到dependencies下，安装这个库时不需要安装的依赖包放到devDependencies下。例如，一个express中间件，`express`和`@types/express`应该放在dependencies下，而`typescript`应该放在devDependencies下
 
 #### dependencies下package的版本号应该是什么形式？
 

@@ -27,3 +27,11 @@
 #### devDependencies下package的版本号应该是什么形式？
 
 为了稳定性，包的版本形式应该是`"x.y.z"`
+
+#### 怎么只安装dependencies下的包？
+
+`npm i --production`
+
+#### 怎么让安装包后，package.json中保存的是`"x.y.z"`，而不是`"^x.y.z"`？
+
+`npm i abc --save --save-exact`

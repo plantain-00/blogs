@@ -2,6 +2,7 @@
 + [web后端结构扩展方向](./contents/web后端结构扩展方向.md)
 + [前后端分离实践总结](./contents/前后端分离实践总结.md)
 + [前端构建过程实践总结](./contents/前端构建过程实践总结.md)
++ [权限设计](./contents/权限设计.md)
 + [js工程师的能力总结](./contents/js工程师的能力总结.md)
 + [js项目的package版本策略](./contents/js项目的package版本策略.md)
 + [重构升级旧js项目的思路](./contents/重构升级旧js项目的思路.md)

@@ -2,6 +2,8 @@
 + [web后端结构扩展方向](./contents/web后端结构扩展方向.md)
 + [前后端分离实践总结](./contents/前后端分离实践总结.md)
 + [前端构建过程实践总结](./contents/前端构建过程实践总结.md)
++ [tslint规则相关](./contents/tslint规则相关.md)
++ [工作之外的自学思路](./contents/工作之外的自学思路.md)
 + [权限设计](./contents/权限设计.md)
 + [js工程师的能力总结](./contents/js工程师的能力总结.md)
 + [js项目的package版本策略](./contents/js项目的package版本策略.md)

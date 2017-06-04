@@ -95,3 +95,9 @@ angular可以在模板中定义`#foo`，然后在class中声明`@ViewChild("foo"
 vuejs可以通过`Vue.nextTick(() => { // todo });`来实现
 
 reactjs可以通过`this.setState({ foo: this.foo }, () => { // todo });`来实现
+
+#### 空元素
+
+vuej使用`<template></template>`
+
+angular使用`<ng-container></ng-container>`

@@ -99,6 +99,13 @@ class MyElement2 extends React.Component<{ name: string }, {}>{
 }
 ```
 
+或者使用更简洁的形式：
+
+```tsx
+const MyElement1: React.StatelessComponent<{ name: string }> = props => <button>{props.name}</button>;
+const MyElement2: React.StatelessComponent<{ name: string }> = props => <span>{props.name}</span>;
+```
+
 然后就像函数的传参那样分别调用一下：
 
 ```tsx

@@ -36,11 +36,6 @@ angular需要声明相应的字段`@Output() foo = new EventEmitter();`，再通
 
 #### 事件的参数
 
-类别 | vuejs | reactjs | angular
---- | --- | --- | ---
-原生事件 | $event | | $event
-组件的自定义事件 | arguments[0] | | $event
-
 对于原生事件，vuejs和angular的参数类型类似于`KeyboardEvent`，而reactjs的参数类型则类似于`React.KeyboardEvent<HTMLInputElement>`
 
 #### 生命周期钩子

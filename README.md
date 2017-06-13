@@ -2,7 +2,7 @@
 + [web后端结构扩展方向](./contents/web后端结构扩展方向.md)
 + [前后端分离实践总结](./contents/前后端分离实践总结.md)
 + [前端构建过程实践总结](./contents/前端构建过程实践总结.md)
-+ [vuejs,reactjs,angular使用细节区别](./contents/vuejs,reactjs,angular使用细节区别.md)
++ [vuejs,reactjs,angular使用细节总结](./contents/vuejs,reactjs,angular使用细节总结.md)
 + [tslint规则相关](./contents/tslint规则相关.md)
 + [封装总结](./contents/封装总结.md)
 + [工作之外的自学思路](./contents/工作之外的自学思路.md)

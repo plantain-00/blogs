@@ -2,6 +2,7 @@
 
 ```bash
 7z a -r -tzip foo.zip foo/
+7z a -r -m0=LZMA -mx=9 -t7z foo.7z foo/
 zip -r9 foo.zip foo/
 ```
 

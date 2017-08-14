@@ -3,6 +3,7 @@
 + [web后端结构扩展方向](.?src=./contents/web后端结构扩展方向.md)
 + [前后端分离实践总结](.?src=./contents/前后端分离实践总结.md)
 + [前端构建过程实践总结](.?src=./contents/前端构建过程实践总结.md)
++ [需要try-catch的场景](.?src=./contents/需要try-catch的场景.md)
 + [扫雷游戏的策略](.?src=./contents/扫雷游戏的策略.md)
 + [vuejs,reactjs,angular使用细节总结](.?src=./contents/vuejs,reactjs,angular使用细节总结.md)
 + [tslint规则相关](.?src=./contents/tslint规则相关.md)

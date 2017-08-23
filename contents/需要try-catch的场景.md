@@ -1,7 +1,7 @@
 #### CLI 程序
 
 + 一般不需要 try...catch ，如果出现错误，直接退出
-+ 对于 watch 类的CLI，如果需要出现错误时继续 watch ，不退出程序，则需要 try...catch
++ 对于 watch 类的 CLI，如果需要出现错误时继续 watch ，不退出程序，则需要 try...catch
 
 #### 服务端程序
 
@@ -24,7 +24,7 @@
 
 + parse：例如 JSON、protobuf、TextDecoder
 + decode：例如 protobuf、TextDecoder
-+ fs或网络相关的 constructor：例如 new WebSocket(url)
++ fs 或网络相关的 constructor：例如 new WebSocket(url)
 + require js 模块
 
 规律是，如果需要的参数不符合规则时，会导致失败，但方法没有返回 Promise ，也没有 error callback ，则肯定会 throw error

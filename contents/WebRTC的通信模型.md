@@ -1,10 +1,10 @@
 ### 准备
 
-使用https://github.com/webrtc/adapter 库来屏蔽chrome、firefox、edge之间的差异，简化编程。
+使用 https://github.com/webrtc/adapter 库来屏蔽 chrome、firefox、edge 之间的差异，简化编程。
 
 ### 连接的建立
 
-双方都要初始化RTCPeerConnection，并创建RTCDataChannel：
+双方都要初始化 RTCPeerConnection，并创建 RTCDataChannel：
 
 ```js
 const peerConnection = new RTCPeerConnection();
@@ -19,7 +19,7 @@ peerConnection.ondatachannel = event => {
         // get message
     };
 };
-const dataChannel = peerConnection.createDataChannel("test_channel_name"); // 双方的channel名要一致
+const dataChannel = peerConnection.createDataChannel("test_channel_name"); // 双方的 channel 名要一致
 ```
 
 这时发起方需要发出邀约：
@@ -34,11 +34,11 @@ peerConnection.createOffer()
     });
 ```
 
-其中产生的offer是一个RTCSessionDescription对象
+其中产生的 offer 是一个 RTCSessionDescription 对象
 
-RTCPeerConnection对象有一个localDescription和一个remoteDescription，它们都是RTCSessionDescription对象，这里需要把发起方创建的offer设置为自己的localDescription
+RTCPeerConnection 对象有一个 localDescription 和一个 remoteDescription，它们都是 RTCSessionDescription 对象，这里需要把发起方创建的 offer 设置为自己的 localDescription
 
-RTCSessionDescription对象由type和sdp字段组成，下面看一下一个offer例子：
+RTCSessionDescription 对象由 type 和 sdp 字段组成，下面看一下一个 offer 例子：
 
 ```js
 {
@@ -60,7 +60,7 @@ a=sctpmap:5000 webrtc-datachannel 1024
 }
 ```
 
-这个例子里，type字段表明这是一个offer，dsp中包含了ip、端口、password等消息。这个offer还不包含任何candidate，可以稍后再执行一次`createOffer`过程，这样会创建一个新的offer：
+这个例子里，type 字段表明这是一个 offer，dsp 中包含了 ip、端口、password 等消息。这个 offer 还不包含任何 candidate，可以稍后再执行一次 `createOffer` 过程，这样会创建一个新的 offer：
 
 ```js
 {
@@ -83,19 +83,19 @@ a=sctpmap:5000 webrtc-datachannel 1024
 }
 ```
 
-获得有效的offer，可以把这个offer序列化成字符串，再通过websocket等其它方式传递给接收方：
+获得有效的 offer，可以把这个 offer 序列化成字符串，再通过 websocket 等其它方式传递给接收方：
 
 ```js
 const offerString = JSON.stringify(offer.toJSON());
 ```
 
-接收方获得这个字符串后，可以反序列化成RTCSessionDescription对象：
+接收方获得这个字符串后，可以反序列化成 RTCSessionDescription 对象：
 
 ```js
 const offer = new RTCSessionDescription(JSON.parse(offerString));
 ```
 
-然后，接收方开始针对这个offer给予反馈：
+然后，接收方开始针对这个 offer 给予反馈：
 
 ```js
 peerConnection.setRemoteDescription(offer)
@@ -108,11 +108,11 @@ peerConnection.setRemoteDescription(offer)
     });
 ```
 
-这里需要把发起方发出的offer设为remoteDescription，再把自己的answer设为localDescription。
+这里需要把发起方发出的 offer 设为 remoteDescription，再把自己的 answer 设为 localDescription。
 
-offer和answer都是RTCSessionDescription对象，自己产生的就设为localDescription，别人发给我的就设为remoteDescription。
+offer 和 answer 都是 RTCSessionDescription 对象，自己产生的就设为 localDescription，别人发给我的就设为 remoteDescription。
 
-下面是一个answer的例子：
+下面是一个 answer 的例子：
 
 ```js
 {
@@ -136,20 +136,20 @@ a=sctpmap:5000 webrtc-datachannel 1024
 }
 ```
 
-answer里也可能没有candidate，如果那样，可以再试一次，没有candidate的offer和answer很可能建立不了连接。
+answer 里也可能没有 candidate，如果那样，可以再试一次，没有 candidate 的 offer 和 answer 很可能建立不了连接。
 
-现在，需要需要把这个answer序列化成字符串后，再通过websocket等方式传递给发起方，发起方再反序列化成RTCSessionDescription对象。
+现在，需要需要把这个 answer 序列化成字符串后，再通过 websocket 等方式传递给发起方，发起方再反序列化成 RTCSessionDescription 对象。
 
-发起方获得answer后，再把它设为自己的remoteDescription。
+发起方获得 answer 后，再把它设为自己的 remoteDescription。
 
-这时候，点对点的连接就应该建立起来了，双方的onopen事件都会被触发，之后发起方和接收方会直接通信，就不需要websocket参与了。
+这时候，点对点的连接就应该建立起来了，双方的 onopen 事件都会被触发，之后发起方和接收方会直接通信，就不需要 websocket 参与了。
 
 ### 发送数据
 
-连接建立后，双方都可以向对方发送消息，对方会在onmessage事件中收到消息：
+连接建立后，双方都可以向对方发送消息，对方会在 onmessage 事件中收到消息：
 
 ```js
 dataChannel.send("Hello world!");
 ```
 
-发送的内容可以是字符串和二进制数据，例如用于传输文本、protobuf编码的数据、文件、音频、视频。
+发送的内容可以是字符串和二进制数据，例如用于传输文本、protobuf 编码的数据、文件、音频、视频。

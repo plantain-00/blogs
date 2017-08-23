@@ -1,8 +1,8 @@
-以函数为类比，函数的参数也可以是函数，典型的例子就是数组的map/filter方法。
+以函数为类比，函数的参数也可以是函数，典型的例子就是数组的 map/filter 方法。
 
-#### vuejs的例子
+#### vuejs 的例子
 
-以vuejs的组件为例，先设计一个组件，props有child(string, 子组件名))、elements(string[], 列表数据)，要求子组件可以接收一个名为name的props：
+以 vuejs 的组件为例，先设计一个组件，props 有 child(string, 子组件名))、elements(string[], 列表数据)，要求子组件可以接收一个名为 name 的 props：
 
 ```ts
 Vue.component("my-list", {
@@ -49,7 +49,7 @@ new Vue({
 });
 ```
 
-最后生成的html代码是：
+最后生成的 html 代码是：
 
 ```html
 <div id="app">
@@ -64,9 +64,9 @@ new Vue({
 </div>
 ```
 
-#### reactjs的例子
+#### reactjs 的例子
 
-再以reactjs的组件为例，先设计一个组件，props有child(string, 子组件类))、elements(string[], 列表数据)，要求子组件可以接收一个名为name的props：
+再以 reactjs 的组件为例，先设计一个组件，props 有 child(string, 子组件类))、elements(string[], 列表数据)，要求子组件可以接收一个名为 name 的 props：
 
 ```tsx
 class MyList extends React.Component<{ elements: string[]; child: React.ComponentClass<{ name: string }> }, {}>{
@@ -123,7 +123,7 @@ class Main extends React.Component<{}, {}>{
 ReactDOM.render(<Main />, document.getElementById("container"));
 ```
 
-最后生成的html代码是：
+最后生成的 html 代码是：
 
 ```html
 <div id="container">
@@ -167,9 +167,9 @@ class Main extends React.Component<{}, {}>{
 ReactDOM.render(<Main />, document.getElementById("container"));
 ```
 
-#### angular的例子
+#### angular 的例子
 
-再以angular的组件为例，先设计一个组件，props有child(子组件类)、elements(string[], 列表数据)，要求子组件可以接收一个名为name的props：
+再以 angular 的组件为例，先设计一个组件，props 有 child(子组件类)、elements(string[], 列表数据)，要求子组件可以接收一个名为 name 的 props：
 
 ```ts
 @Component({
@@ -240,7 +240,7 @@ export class MainComponent {
 }
 ```
 
-最后生成的html代码是：
+最后生成的 html 代码是：
 
 ```html
 <app ng-version="4.0.1">
@@ -267,7 +267,7 @@ export class MainComponent {
 </app>
 ```
 
-注意需要MainModule的entryComponents中声明子组件：
+注意需要 MainModule 的 entryComponents 中声明子组件：
 
 ```ts
 @NgModule({

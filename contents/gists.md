@@ -65,11 +65,11 @@ function commitSafely(connection: oracledb.IConnection) {
 }
 ```
 
-## 并行、并发、同步/异步
+## 并行、并发、同步 / 异步
 
-+ 并行parallel：可以同时利用CPU的多核心来计算
-+ 并发concurrency：可以同时处理多用户的请求
-+ 同步synchronous/异步asynchronous：当代码运行的某个阶段，需要IO操作，不需要CPU参与时，不能/能解放CPU资源用于处理其它事情
++ 并行 parallel：可以同时利用 CPU 的多核心来计算
++ 并发 concurrency：可以同时处理多用户的请求
++ 同步 synchronous / 异步 asynchronous：当代码运行的某个阶段，需要 IO 操作，不需要 CPU 参与时，不能 / 能解放 CPU 资源用于处理其它事情
 
 ## es decorator
 
@@ -970,7 +970,7 @@ export function takeSnapshot() {
 ## install OS from USB
 
 1. open .iso file with UltraISO
-2. click `启动光盘-写入硬盘映像`, `格式化` and `写入`
+2. click ` 启动光盘 - 写入硬盘映像 `, ` 格式化 ` and ` 写入 `
 3. press ESC, F2 or F8 to enter BIOS, change the first reboot device
 4. mind the network setting and set an user
 

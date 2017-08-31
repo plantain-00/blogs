@@ -1,3 +1,43 @@
+## nodejs http/2 push
+
+```bash
+node --expose-http2 server.js
+```
+
+```js
+const http2 = require('http2')
+const fs = require('fs')
+
+const server = http2.createSecureServer({
+    key: fs.readFileSync('private_key.pem'),
+    cert: fs.readFileSync('server.pem')
+});
+
+server.on('stream', (stream, headers) => {
+    stream.pushStream({ ':path': '/index.js' }, pushStream => {
+        pushStream.respondWithFile('./index.js', {
+            'content-type': 'application/javascript',
+            ':status': 200,
+        })
+    })
+    stream.respond({
+        'content-type': 'text/html',
+        ':status': 200
+    })
+    stream.end('hello world<script src="./index.js"></script>')
+});
+
+server.listen(8080)
+```
+
+## local https for test
+
+```bash
+openssl genrsa -out private_key.pem 1024/2038
+req -new -x509 -key private_key.pem -out server.pem -days 365
+# Common Name: localhost
+```
+
 ## zip / p7zip
 
 ```bash

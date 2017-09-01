@@ -1,3 +1,9 @@
+## git remove from index
+
+```bash
+git rm node_modules/ --cached -r
+```
+
 ## nodejs http/2 push
 
 ```bash

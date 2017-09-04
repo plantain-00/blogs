@@ -1,3 +1,7 @@
+## vuejs directive
+
+vue 内部事件的 hook
+
 ## git remove from index
 
 ```bash

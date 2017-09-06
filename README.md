@@ -3,6 +3,7 @@
 + [web后端结构扩展方向](.?src=./contents/web后端结构扩展方向.md)
 + [前后端分离实践总结](.?src=./contents/前后端分离实践总结.md)
 + [前端构建过程实践总结](.?src=./contents/前端构建过程实践总结.md)
++ [移动端页面调试的方法总结](.?src=./contents/移动端页面调试的方法总结.md)
 + [web安全总结](.?src=./contents/web安全总结.md)
 + [需要try-catch的场景](.?src=./contents/需要try-catch的场景.md)
 + [扫雷游戏的策略](.?src=./contents/扫雷游戏的策略.md)

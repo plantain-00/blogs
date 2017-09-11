@@ -1,3 +1,10 @@
+## dig and whois
+
+```
+dig: dns info
+whois: domain name info
+```
+
 ## vuejs directive
 
 vue 内部事件的 hook

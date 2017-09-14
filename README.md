@@ -24,8 +24,8 @@
 ### 语言特性
 
 + [几个简单的函数式抽象的实现](.?src=./contents/cases-of-functional-abstract.md)
-+ [rust的ownership](.?src=./contents/rust的ownership.md)
-+ [interface和trait](.?src=./contents/interface和trait.md)
++ [rust 的 ownership](.?src=./contents/rust-ownership.md)
++ [interface 和 trait](.?src=./contents/interface-and-trait.md)
 + [模式匹配](.?src=./contents/pattern-match.md)
 + [async / await方案](.?src=./contents/async-await-solution.md)
 + [map / reduce / filter 相关模式](.?src=./contents/map-reduce-filter.md)

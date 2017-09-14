@@ -1,3 +1,5 @@
+# rust 的 ownership
+
 rust 中的每个值都有相应并且唯一的 owner，和直觉一致的是，在变量绑定时，绑定的变量 own 了这个值：
 
 ```rust

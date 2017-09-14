@@ -1,3 +1,5 @@
+# interface 和 trait
+
 一般是抽象于一种能力，内部包含一个或多个函数，然后会有 class 来实现它，从而该 class 就拥有这种能力。
 
 在 java/C#/typescript 中被称为 interface，在 rust/scala 中被称为 trait。

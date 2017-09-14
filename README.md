@@ -27,7 +27,7 @@
 + [rust 的 ownership](.?src=./contents/rust-ownership.md)
 + [interface 和 trait](.?src=./contents/interface-and-trait.md)
 + [模式匹配](.?src=./contents/pattern-match.md)
-+ [async / await方案](.?src=./contents/async-await-solution.md)
++ [async / await 方案](.?src=./contents/async-await-solution.md)
 + [map / reduce / filter 相关模式](.?src=./contents/map-reduce-filter.md)
 + [需要 try catch 的场景](.?src=./contents/cases-need-try-catch.md)
 

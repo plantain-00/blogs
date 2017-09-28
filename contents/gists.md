@@ -3,6 +3,7 @@
 ```
 sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
 sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
+'/Library/Application Support/Jenkins/Uninstall.command'
 ```
 
 ## dig and whois
@@ -62,12 +63,13 @@ req -new -x509 -key private_key.pem -out server.pem -days 365
 # Common Name: localhost
 ```
 
-## zip / p7zip
+## zip / p7zip / unrar
 
 ```bash
 7z a -r -tzip foo.zip foo/
 7z a -r -m0=LZMA -mx=9 -t7z foo.7z foo/
 zip -r9 foo.zip foo/
+unrar x foo.rar foo/
 ```
 
 ## check and update npm dependencies and devDependencies

@@ -1,5 +1,19 @@
 # 一些技术的调查记录
 
+## SharedWorker
+
+可以创建被多个页面共享的 worker，和普通 worker 一样，SharedWorker 可以通过 MessagePort API 通信
+
+```js
+var sharedWorker = new SharedWorker('shared-worker.js');
+sharedWorker.port.onmessage = e => {
+    console.log(e.data);
+};
+sharedWorker.port.start();
+```
+
+可以和 PostMessage API 一样完成页面间的通信；另外对于比较 heavy 的资源，例如 WebSocket 连接，可以在 SharedWorker 中只创建一个连接，然后就可以去掉各个页面内的 WebSocket 连接了
+
 ## AssemblyScript
 
 js 转 WebAssembly 的尝试，用 Typescript 的类型系统来表示具体的类型，例如 int32 等

@@ -1,5 +1,15 @@
 # 一些技术的调查记录
 
+## Ambient Light Sensor API
+
+可以监视光传感器的光强变化事件
+
+```js
+window.addEventListener('devicelight', function (event) {
+    console.log(event.value);
+});
+```
+
 ## NetworkInformation API
 
 可以查看当前连接状态、监视连接状态变化事件，状态包括网络类型（蓝牙、wifi 等）、带宽、往返时间

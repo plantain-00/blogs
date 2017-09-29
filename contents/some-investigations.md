@@ -1,5 +1,16 @@
 # 一些技术的调查记录
 
+## NetworkInformation API
+
+可以查看当前连接状态、监视连接状态变化事件，状态包括网络类型（蓝牙、wifi 等）、带宽、往返时间
+
+```js
+const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+connection.addEventListener('typechange', () => {
+    console.log(connection);
+});
+```
+
 ## SharedWorker
 
 可以创建被多个页面共享的 worker，和普通 worker 一样，SharedWorker 可以通过 MessagePort API 通信

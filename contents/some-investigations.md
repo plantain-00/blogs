@@ -4,7 +4,7 @@
 
 在 service worker 上监听`push`事件、通过`self.registration.showNotification()`来向用户 push 消息
 
-服务端可以使用 web-push 库来发送消息
+服务端可以使用 web-push 库来发送消息，依赖 GCM
 
 ## IndexedDB API 或 localForage 库
 

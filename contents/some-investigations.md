@@ -1,5 +1,46 @@
 # 一些技术的调查记录
 
+## Push API 和 web-push 库
+
+在 service worker 上监听`push`事件、通过`self.registration.showNotification()`来向用户 push 消息
+
+服务端可以使用 web-push 库来发送消息
+
+## IndexedDB API 或 localForage 库
+
+可以存储数据
+
+## Vibration API
+
+可以控制振动设备
+
+```js
+navigator.vibrate(1000)
+```
+
+## Screen Orientation API
+
+可以获取屏幕方向和监视屏幕方向变化
+
+```js
+screen.orientation.onchange = function () {
+    console.log(screen.orientation.type + " " + screen.orientation.angle);
+}
+console.log(screen.orientation.type + " " + screen.orientation.angle);
+```
+
+## Device Orientation API 或 gyronorm 库
+
+可以通过加速度计和陀螺仪设备数据
+
+## Pointer Lock API
+
+可以把鼠标输入控制在某个页面元素上，避免游戏、操作地图等时因为误触到外面导致程序失去焦点
+
+## Geolocation API
+
+可以获取地理位置信息、监视地理位置信息变化
+
 ## Ambient Light Sensor API
 
 可以监视光传感器的光强变化事件

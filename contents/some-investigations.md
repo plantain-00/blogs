@@ -1,5 +1,9 @@
 # 一些技术的调查记录
 
+## OpenAPI 规范
+
+语言无关的 REST API 规范
+
 ## Push API 和 web-push 库
 
 在 service worker 上监听`push`事件、通过`self.registration.showNotification()`来向用户 push 消息

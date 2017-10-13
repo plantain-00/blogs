@@ -1,3 +1,16 @@
+## docker
+
+```bash
+# all containers
+docker ps -a
+
+# remove all stopped containers
+docker rm $(docker ps -a -q)
+
+# run with new CMD
+docker run -d -p 8030:8030 plantain/baogame node dist/app.js --debug
+```
+
 ## mac reload jenkins
 
 ```

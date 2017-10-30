@@ -1,5 +1,9 @@
 # 一些技术的调查记录
 
+## @sonarwhal/sonar
+
+网站 lint 工具
+
 ## OpenAPI 规范
 
 语言无关的 REST API 规范

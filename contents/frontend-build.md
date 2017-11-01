@@ -597,7 +597,26 @@ scripts
 
 https://github.com/plantain-00/prerender-js 可以 prerender 页面，根据元素 ID 获取生成的 html 并保存到本地文件中
 
-`prerender-js "http://localhost:8000" --id "prerender-container" -o prerender.html`
+`http-server -p 8000`
+
+```ts
+import * as puppeteer from "puppeteer";
+import * as fs from "fs";
+
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
+await page.emulate({ viewport: { width: 1440, height: 900 }, userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36" });
+await page.waitFor(1000);
+await page.goto("http://localhost:8000");
+await page.waitFor(2000);
+const content = await page.evaluate(() => {
+    const element = document.querySelector("#prerender-container");
+    return element ? element.innerHTML.trim() : "";
+});
+fs.writeFileSync("prerender/index.html", content);
+
+browser.close();
+```
 
 在 `rev-static.config.js` 中读取保存的 html 代码片段，并配置到 `context` 中
 
@@ -605,7 +624,7 @@ https://github.com/plantain-00/prerender-js 可以 prerender 页面，根据元�
 const fs = require('fs')
 ...
   context: {
-    prerender: fs.readFileSync('prerender.html')
+    prerender: fs.readFileSync('prerender/index.html')
   }
 ...
 ```

@@ -636,3 +636,32 @@ const fs = require('fs')
     <div id="container"><%-context.prerender %></div>
 </div>
 ```
+
+### precache
+
+使用 precache 可以离线运行程序，例如计算器。一般通过 service worker 来实现
+
+```js
+// sw-precache.config.js
+module.exports = {
+  staticFileGlobs: [
+    'index.html',
+    'index.bundle-*.js',
+    'vendor.bundle-*.js',
+    'index.bundle-*.css',
+    'vendor.bundle-*.css'
+  ]
+}
+```
+
+`sw-precache --config sw-precache.config.js`
+
+`uglifyjs service-worker.js -o service-worker.bundle.js`
+
+```js
+if (navigator.serviceWorker) {
+    navigator.serviceWorker.register("service-worker.bundle.js").catch(error => {
+        console.log("registration failed with error: " + error);
+    });
+}
+```

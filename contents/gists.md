@@ -1,3 +1,10 @@
+## git delete local and remote branch
+
+```
+git branch -d the_local_branch
+git push origin :the_remote_branch
+```
+
 ## docker
 
 ```bash

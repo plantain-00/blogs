@@ -1,5 +1,11 @@
 # 一些技术的调查记录
 
+## parcel
+
+打包工具
+
+目前还不够成熟，webpack 的某些功能还不能被它替代，例如 `webpack.optimize.CommonsChunkPlugin`
+
 ## @sonarwhal/sonar
 
 网站 lint 工具

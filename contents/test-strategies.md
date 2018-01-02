@@ -42,6 +42,17 @@ CLI 执行结束后，对于 stdout 和 stderr，或者生成的文件，可以*
 
 所以最好要使用统一的操作系统，否则可以在 CI 中不对截图进行验证
 
+## 框架相关的组件测试
+
++ vuejs: vue-test-utils
++ reactjs: react-dom/test-utils react-test-renderer enzyme
++ angular: @angular/core/testing
+
+虽然各个框架使用的测试工具都不一样，但是还是有一些相同的地方：
+
++ 为了能够操作 DOM，一般要通过 karma 等工具使测试用例运行在浏览器上
++ 针对组件进行测试，测试用例开始时创建组件的实例，结束前销毁
+
 ## **测试**是一个关于**表达**的问题
 
 用简单的形式，清晰地表达代码的功能、界面改动效果等等。

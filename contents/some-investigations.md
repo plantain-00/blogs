@@ -4,7 +4,7 @@
 
 打包工具
 
-目前还不够成熟，webpack 的某些功能还不能被它替代，例如 `webpack.optimize.CommonsChunkPlugin`
+目前还不够成熟，webpack 的某些功能还不能被它替代，例如 alias
 
 ## @sonarwhal/sonar
 

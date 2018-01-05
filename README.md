@@ -85,6 +85,7 @@
 
 ### 其它
 
++ [使用 vuejs 实例而非 vuex 作为 store](.?src=./contents/use-vue-as-store-rather-than-vuex.md)
 + [基于 redis 的分布式锁](.?src=./contents/distributed-lock-on-redis.md)
 + [向 web 组件的 props 传入 web 组件的思想](.?src=./contents/idea-of-web-component-as-props-of-web-component.md)
 + [类型安全的物理量抽象](.?src=./contents/type-safe-physical-quantity.md)

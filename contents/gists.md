@@ -1,3 +1,9 @@
+## docker enter 
+
+```
+docker exec -it foo bash
+```
+
 ## git cannot lock existing info/refs error
 
 ```

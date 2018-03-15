@@ -1,3 +1,9 @@
+## git cannot lock existing info/refs error
+
+```
+git gc --prune=now
+```
+
 ## git delete local and remote branch
 
 ```

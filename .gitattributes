@@ -1,1 +1,5 @@
 *.md linguist-language=Markdown
+index.html linguist-generated=true
+service-worker.bundle.js linguist-generated=true
+vendor.bundle-*.js linguist-vendored
+vendor.bundle-*.css linguist-vendored

@@ -1,5 +1,9 @@
 # 一些技术的调查记录
 
+## assemblyscript
+
+目前只能实现纯逻辑，缺少大量库，例如 encodeURIComponent
+
 ## parcel
 
 打包工具

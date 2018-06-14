@@ -1,3 +1,7 @@
+## clean remote branches
+
+`git remote prune origin`
+
 ## docker enter 
 
 ```

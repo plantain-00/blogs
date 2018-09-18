@@ -1,3 +1,7 @@
+## remove local git tags
+
+`git tag | xargs git tag -d`
+
 ## clean remote branches
 
 `git remote prune origin`

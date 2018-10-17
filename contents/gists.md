@@ -1409,6 +1409,10 @@ http://nginx.org/en/docs/install.html
 ## port
 
 ```bash
+# mac
+lsof -nP -i4TCP:9333 | grep LISTEN
+
+# linux
 netstat -ano | grep 80
 ```
 

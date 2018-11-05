@@ -1,3 +1,10 @@
+## test cors
+
+```
+1. For postman: add `Origin` header
+2. For browser: disable cache
+```
+
 ## remove local git tags
 
 `git tag | xargs git tag -d`

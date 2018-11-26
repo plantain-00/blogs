@@ -1,3 +1,21 @@
+## opencv js
+
+```
+1. browser
+Build opencv c++ code to js code with emscripten
+Size: 8MB
+Dependencies: no 
+Version: all
+
+2. nodejs
+Option 1: Same generated js file by emscripten
+Cannot be used directly, maybe work with jsdom and node-canvas
+
+Option 2: opencv4nodejs, binding by node-gyp
+Version: 3.4 only
+Typescript declaration: yes
+```
+
 ## test cors
 
 ```

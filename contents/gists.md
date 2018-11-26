@@ -2,7 +2,7 @@
 
 ```
 1. browser
-Build opencv c++ code to js code with emscripten
+Build opencv c++ code to js code(with webassembly content in) with emscripten
 Size: 8MB
 Dependencies: no 
 Version: all

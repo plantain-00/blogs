@@ -1,3 +1,14 @@
+## ffmpeg
+
+```
+1. images to video
+ffmpeg -f image2 -framerate 2 -i ./test-%d.png ./c.gif
+ffmpeg -f image2 -framerate 2 -i ./test-%d.png ./c.mp4
+
+2. add video watermark
+ffmpeg -i ./c.mp4 -vf "movie=./a.png[watermark];[in][watermark] overlay=10:10[out]" ./d.mp4
+```
+
 ## opencv js
 
 ```

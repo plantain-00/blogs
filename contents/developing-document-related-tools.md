@@ -10,6 +10,8 @@
 
 也可以代码仓库自带的 wiki，例如 github、gitlab；
 
+或者使用不需要 build，也不需要 backend 的 doc 程序：<https://github.com/plantain-00/simple-doc>。
+
 具体使用上，避免过大的文件，可以按类别分成若干文件；
 
 有关联的几个部分，应该相互链接，这样可以方便地从一个地方，找到所有相关的文档；

@@ -78,6 +78,7 @@
 
 ### 数据
 
++ [多种 schema 的维护](.?src=./contents/various-data-schema.md)
 + [把含二进制数据的对象序列化成二进制](.?src=./contents/serialize-object-with-binary-data-to-binary-data.md)
 + [前后端交互二进制数据的方式](.?src=./contents/ways-of-binary-data-transfer-between-backend-and-frontend.md)
 + [几种数据存储工具](.?src=./contents/data-storage-tools.md)

@@ -31,4 +31,4 @@ build 和 test  过程的情况要复杂一些，例如 `package-a` 依赖 `pack
 
 + 一般在 build, lint 和 test 后执行
 + 一般只在 tag 上或 master 分支上开启，tag、分支名、commit message 可以在 CI 的环境变量中拿到
-+ 可以通过 `npm view @foo/bar versions` 来获得 package 已经发布的所以版本，如果 `package.json` 里的版本没有发布，或者错误消息里包含 `404 Not Found`（说过这个 package 还没有发布过），就通过执行 `cd ./packages/bar && npm publish` 来发布
++ 可以通过 `npm view @foo/bar versions` 来获得 package 已经发布的所以版本，如果 `package.json` 里的版本没有发布，或者错误消息里包含 `404 Not Found`（说明这个 package 还没有发布过），就通过执行 `cd ./packages/bar && npm publish` 来发布

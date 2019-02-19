@@ -16,6 +16,7 @@
 + [一种后台配置方案](.?src=./contents/a-backend-configuration-solution.md)
 + [UI 组件间通信的几个解决方案](.?src=./contents/communication-between-UI-components-solutions.md)
 + [js 的几种表示类型的工具](.?src=./contents/type-tool-for-js.md)
++ [一个 web 渲染 target 抽象](.?src=./contents/web-render-target-interface.md)
 
 ### 测试和调试
 

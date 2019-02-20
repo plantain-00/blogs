@@ -69,6 +69,7 @@
 
 ### 结构
 
++ [package 的设计](.?src=./contents/package-design.md)
 + [web 后端结构扩展方向](.?src=./contents/web-backend-extension.md)
 + [nodejs 的代码组织形式](.?src=./contents/nodejs-code-strcture.md)
 + [lerna 项目的 CI 优化](.?src=./contents/lerna-project-ci.md)

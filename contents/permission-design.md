@@ -33,3 +33,55 @@
 前端控制，可以是把未授权的操作入口隐藏掉，也可以是把未授权的操作入口 disable 掉。
 
 用户登录后，服务端不止要返回 token，也要返回此用户的权限列表（或权限树），这样，前端就可以根据这个权限列表或权限树，隐藏或 disable 掉未授权的权限了。
+
+#### nestjs 的权限设计
+
+首先是资源标记，nestjs 里可以在下面几个地方标记资源
+
++ controller class
++ controller method (GET POST 等等)
++ resolver class
++ resolver method (Query Mutation Subscription)
+
+用于标记的装饰可以是
+
+```ts
+import { ReflectMetadata } from '@nestjs/common'
+
+const ResourceName = (name: string) => ReflectMetadata('resourceName', name)
+```
+
+使用 nestjs 的全局 Guard 来做鉴权，先判断请求的资源名称
+
+```ts
+const resourceName = this.reflector.get<string>('resourceName', context.getHandler()) || this.reflector.get<string>('resourceName', context.getClass())
+```
+
+method 上的资源名称优先级大于 class 上的资源名称
+
+如果没有资源名称，则说明是不可访问的资源，鉴权失败
+
+然后根据方法上的 `@GET` `@POST` `@Query` 等装饰，识别资源的操作，例如读、写
+
+```ts
+const resolverType = this.reflector.get<'Query' | 'Mutation' | 'Subscription' | undefined>('graphql:resolver_type', context.getHandler())
+const requestMethod = this.reflector.get<'GET' | 'POST' | 'PUT' | 'DELETE' | undefined>('method', context.getHandler())
+// 查询有没有 @ResolveProperty() 装饰，这个装饰是用于嵌套属性查询，所以等同于 Query
+const isResolveProperty = this.reflector.get<boolean>('graphql:resolve_property', context.getHandler())
+```
+
+如果没有资源操作，则说明是不可访问的资源，鉴权失败
+
+然后获取当前请求
+
+```ts
+const req = isGraphqlRequest
+  ? GqlExecutionContext.create(context).getContext<ResolverContext>().req // resolver
+  : context.switchToHttp().getRequest<Request>() // controller
+```
+
+最后根据当前请求携带的用户信息作鉴权
+
+除了使用全局 Guard，更复杂的鉴权需求，可以通过在请求处理方法中抛出异常来达到，例如`throw new HttpException('need login', 403)`
+
+例外，对于 `login` 这样不要求验证身份的接口，可以认为资源名称是 `public`，并让这个资源不需要登录也能访问

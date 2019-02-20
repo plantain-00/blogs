@@ -76,6 +76,7 @@
 
 ### 记录
 
++ [为 npm 包里的二进制文件增加 mirror](.?src=./contents/add-binary-mirror.md)
 + [一些技术的调查记录](.?src=./contents/some-investigations.md)
 + [gists](.?src=./contents/gists.md)
 + [nodejs 概要介绍分享记录](.?src=./contents/nodejs-introduction.md)

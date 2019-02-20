@@ -1,3 +1,24 @@
+## xcx login decript user data
+
+```ts
+function aesDecrypt(key: string, iv: string, crypted: string) {
+  const decipher = crypto.createDecipheriv('aes-128-cbc', new Buffer(key, 'base64'), new Buffer(iv, 'base64'))
+  let decoded = decipher.update(new Buffer(crypted, 'base64'), 'base64', 'utf8')
+  decoded += decipher.final('utf8')
+  return decoded
+}
+```
+
+## xcx push check signature
+
+```ts
+function checkSignature(signature: string, timestamp: number, nonce: string) {
+  const tmpStr = [config.WEIXIN_MESSAGE_TOKEN, timestamp, nonce].sort().join('')
+  const sign = crypto.createHash('sha1').update(tmpStr, 'utf8').digest('hex')
+  return sign === signature
+}
+```
+
 ## ffmpeg
 
 ```

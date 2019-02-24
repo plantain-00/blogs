@@ -73,6 +73,23 @@ CLI 执行结束后，对于 stdout 和 stderr，或者生成的文件，可以*
 
 这样可以同时保证开发速度和稳定性
 
+如果现有的代码不方便测试，可以 refactor 为更 pure 的代码，以方便测试，例如：
+
+```ts
+// 重构前
+function foo() {
+    return Math.random() > 0.2 : 1 : 0
+}
+
+// 重构后
+function foo(getRandom: () => number) {
+    return getRandom() > 0.2 : 1 : 0
+}
+// 测试
+foo(() => 0)
+foo(() => 0.5)
+```
+
 ### 为主流程增加一个测试用例
 
 例如对于一个包含前后端的程序，需要有一个同时测试前后端的集成测试用例

@@ -58,3 +58,5 @@ class Foo {
 + reactive（mobx、vuejs）
 + 使用 class，可以加一些业务上紧密相关的 method（method 内可以调用贫血模型的 data access 函数）
 + 负责和充血模型 model 的转换
++ 测试时，测试用例来自贫血模型，转换为充血模型后，执行相应的方法，再转为贫血模型进行测试结果验证
++ 可以收集充血模型里的 computed 结果后进行测试结果验证

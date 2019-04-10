@@ -60,3 +60,28 @@ class Foo {
 + 负责和充血模型 model 的转换
 + 测试时，测试用例来自贫血模型，转换为充血模型后，执行相应的方法，再转为贫血模型进行测试结果验证
 + 可以收集充血模型里的 computed 结果后进行测试结果验证
+
+## 针对多数据模型的开发
+
+对于某些复杂的逻辑，如果每个 model 都写一遍代码，难以维护
+
+可以通过下面的方式合并到一起
+
+### 针对 Foo1 | Foo2 | Foo3 来写
+
+适用于几个 model 的字段比较类似，或容易区分不同的 model
+
+而且当需要增加支持 model 时，代码改动较大
+
+### 把负责操作 model 的 Context 也作为输入
+
+```ts
+interface Context<T> {
+    getBar: (m: T) => number
+    getBaz: (m: T) => number
+}
+```
+
+不同的 model 都需要实现一个 Context，例如 `Context<Foo1>`，`Context<Foo2>`，`Context<Foo3>`，负责操作各个 model，
+
+代码量较多，但容易维护

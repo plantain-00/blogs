@@ -2,6 +2,7 @@
 
 ### 程序设计
 
++ [有依赖的任务的几种执行方式](.?src=./contents/several-ways-for-dependent-tasks.md)
 + [复杂 package 的几种实现方式](.?src=./contents/several-ways-for-complex-package.md)
 + [支持多个框架的 UI 组件设计](.?src=./contents/ui-component-for-muitiple-framework.md)
 + [基于 HTTP 协议的 API 设计和取舍](.?src=./contents/API-design-and-trade-off-based-on-HTTP.md)

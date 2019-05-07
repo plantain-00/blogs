@@ -1,5 +1,12 @@
 # 一些技术的调查记录
 
+## jison
+
+parser 生成工具
+
+优点：支持的语法灵活
+缺的：不能输出 ast，不能进行基于 ast 的分析
+
 ## immutable.js
 
 和 typescript 配合时，会丢失大量信息

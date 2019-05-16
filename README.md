@@ -27,6 +27,7 @@
 
 ### 语言特性
 
++ [Generator 函数的抽象](.?src=./contents/generator-function-abstract.md)
 + [几个简单的函数式抽象的实现](.?src=./contents/cases-of-functional-abstract.md)
 + [rust 的 ownership](.?src=./contents/rust-ownership.md)
 + [interface 和 trait](.?src=./contents/interface-and-trait.md)

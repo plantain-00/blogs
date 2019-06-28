@@ -14,7 +14,7 @@
 总体上，dependencies 下应该放置运行时的依赖；devDependencies 下应该放置开发时的依赖。具体来说：
 
 + 如果是 nodejs 程序，或者 CLI 程序，程序运行时的依赖包放到 dependencies 下，程序运行时不依赖的包放到 devDependencies 下。例如，一个网站后端，`express` 应该放在 dependencies 下，而 `@types/express` 和 `typescript` 应该放在 devDependencies 下
-+ 如果是前端程序，因为程序运行时不会依赖 node_modules 内的包，所以应该把所有的依赖都放到 devDependencies 下。例如，一个网站前端，`react` 应该放在 devDependencies 下
++ 如果是前端程序，因为前端程序普遍会有打包流程，程序运行时不会依赖 node_modules 内的包，但未来依赖包里的文件可能需要 host 在 http2 下，这时放在 dependencies 下也就有必要了，所以建议把所有的依赖都放到 dependencies 下。例如，一个网站前端，`react` 应该放在 dependencies 下
 + 如果是库，安装这个库时也需要安装的依赖包放到 dependencies 下，安装这个库时不需要安装的依赖包放到 devDependencies 下。例如，一个 express 中间件，`express` 和 `@types/express` 应该放在 dependencies 下，而 `typescript` 应该放在 devDependencies 下
 
 #### dependencies 下 package 的版本号应该是什么形式？
@@ -38,3 +38,9 @@
 #### 怎么让安装包后，package.json 中保存的是 `"x.y.z"`，而不是 `"^x.y.z"`？
 
 `npm i abc --save --save-exact`
+
+#### 如果程序依赖了 a 和 b，a 依赖 b，程序还需要显式依赖 b 吗？
+
+需要，因为如果不显式依赖 b，如果未来 a 不再依赖 b，程序也就 break 了
+
+可以使用 `no-unused-package` 来在 CI 中检查

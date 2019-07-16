@@ -54,6 +54,7 @@
 
 ### 策略
 
++ [保证接口兼容性的策略](.?src=./contents/keep-api-compatible-strategy.md)
 + [后端的版本策略](.?src=./contents/backend-version-strategy.md)
 + [数据备份和恢复策略](.?src=./contents/data-backup-and-recovery-strategy.md)
 + [nodejs 部署策略](.?src=./contents/nodejs-deploy-strategy.md)

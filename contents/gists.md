@@ -1,3 +1,10 @@
+## remove yarn and npm cache
+
+```
+npm cache clean --force
+yarn cache clean
+```
+
 ## xcx login decript user data
 
 ```ts

@@ -116,3 +116,23 @@ function foo(bar: (baz: number) => void) {}
 
 function foo(bar: (baz: number, qux: string) => void) {}
 ```
+
+## 新增 union 类型
+
+```ts
+interface Foo {
+  bar: number
+}
+
+type Foo = Bar | Baz
+
+interface Bar {
+  type: undefined
+  bar: number
+}
+
+interface Baz {
+  type: 'baz'
+  baz: string
+}
+```

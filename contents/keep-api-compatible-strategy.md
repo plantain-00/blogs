@@ -127,7 +127,7 @@ interface Foo {
 type Foo = Bar | Baz
 
 interface Bar {
-  type: undefined
+  type?: 'bar'
   bar: number
 }
 

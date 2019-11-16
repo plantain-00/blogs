@@ -106,3 +106,7 @@
 + [生成 html 页面的方式演化](.?src=./contents/history-of-generating-html-page.md)
 + [CORS 的 preflight](.?src=./contents/CORS-preflight.md)
 + [ws 和 socket.io 传输数据的可靠性](.?src=./contents/ws-and-socket-io-stability-of-transfer-data.md)
+
+### 技术之外
+
++ [指数基金定投、现金流和安全感](.?src=./contents/automatic-investment-plan-of-index-fund-cash-flow-and-sense-of-security.md)

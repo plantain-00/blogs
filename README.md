@@ -45,6 +45,7 @@
 
 ### 总结
 
++ [使用 Adobe CEP 开发 Photoshop 插件](.?src=./contents/develop-photoshop-plugin-with-adobe-cep.md)
 + [前后端分离实践总结](.?src=./contents/frontend-backend-seperation.md)
 + [前端构建过程实践总结](.?src=./contents/frontend-build.md)
 + [web 安全总结](.?src=./contents/web-security.md)

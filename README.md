@@ -2,6 +2,7 @@
 
 ### 程序设计
 
++ [基于表达式的程序设计](.?src=./contents/program-design-based-on-expression.md)
 + [有依赖的任务的几种执行方式](.?src=./contents/several-ways-for-dependent-tasks.md)
 + [复杂 package 的几种实现方式](.?src=./contents/several-ways-for-complex-package.md)
 + [支持多个框架的 UI 组件设计](.?src=./contents/ui-component-for-muitiple-framework.md)

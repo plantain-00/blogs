@@ -1,3 +1,7 @@
+## directory sizes and sort
+
+`du -d 1 | sort -nr`
+
 ## remove yarn and npm cache
 
 ```

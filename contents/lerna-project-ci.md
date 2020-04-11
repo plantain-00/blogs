@@ -26,6 +26,7 @@ build 和 test  过程的情况要复杂一些，例如 `package-a` 依赖 `pack
 + 通过 `lerna run build --scope package-a --scope package-b --scope package-c` 来执行 build
 + build 完成后，通过 `lerna run test --parallel --scope package-a --scope package-b` 来执行 test，注意可以并行执行 test 的
 + 如果执行过 `lerna version`，`lerna updated` 会返回空结果，作了修改的 package 可以通过下面的 `npm view` 来获得
++ 进一步的优化是，作了修改的 package 的依赖 packages 不执行 build，而是删除对应的代码后执行 `lerna bootstrap`，这时这些依赖 packages 会当作外部依赖包被安装，也就避免了这些包的 build 过程
 
 ## 在 CI 中进行 package 自动发布
 

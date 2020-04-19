@@ -1,3 +1,56 @@
+## event hander to promise
+
+```ts
+const result = await new Promise<Result | undefined>((resolve) => {
+    const newResultChannelName = '...'
+    const noResultChannelName = '...
+    let timeout: NodeJS.Timeout | undefined
+
+    function cleanup() {
+        if (timeout) {
+            clearTimeout(timeout)
+        }
+
+        subClient.removeListener('message', handler)
+
+        const handlerCount = subscriptionHandlerCountMap.get(id)
+        if (handlerCount === 1) {
+            subscriptionHandlerCountMap.delete(id)
+            subClient.unsubscribe(newResultChannelName)
+            subClient.unsubscribe(noResultChannelName)
+        } else if (handlerCount) {
+            subscriptionHandlerCountMap.set(id, handlerCount - 1)
+        }
+    }
+
+    async function handler(channel: string, message: string) {
+        if (channel === newResultChannelName) {
+            const result = JSON.parse(message) as Result
+            if (index < result.length) {
+                cleanup()
+                resolve(result)
+            }
+        } else if (channel === noResultChannelName) {
+            cleanup()
+            resolve(undefined)
+        }
+    }
+    subClient.addListener('message', handler)
+
+    const subscriptionCount = subscriptionHandlerCountMap.get(id)
+    if (!subscriptionCount) {
+        subscriptionHandlerCountMap.set(id, 1)
+        subClient.subscribe(newResultChannelName)
+        subClient.subscribe(noResultChannelName)
+    }
+
+    timeout = setTimeout(() => {
+        cleanup()
+        resolve(undefined)
+    }, 10 * 1000)
+})
+```
+
 ## directory sizes and sort
 
 `du -d 1 | sort -nr`

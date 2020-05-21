@@ -1,3 +1,16 @@
+## gloabl npm and yarn packages
+
+```txt
+npm list -g --depth=0
+yarn global list --depth=0
+
+npm uninstall -g abc
+yarn global remove abc
+
+npm install -g abc
+yarn global add sbc
+``
+
 ## event hander to promise
 
 ```ts

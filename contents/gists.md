@@ -1543,6 +1543,11 @@ http://nginx.org/en/docs/install.html
 ## port
 
 ```bash
+# all
+lsof -i
+# 9333
+lsof -i:9333
+
 # mac
 lsof -nP -i4TCP:9333 | grep LISTEN
 
